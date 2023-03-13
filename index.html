@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Execute Script</title>
+  </head>
+  <body>
+    <form id="execute-form">
+      Command: <input type="text" name="command"><br>
+      <input type="submit" value="Submit">
+    </form>
+    <pre id="output"></pre>
+
+    <script>
+      const form = document.getElementById('execute-form');
+      const output = document.getElementById('output');
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const command = formData.get('command');
+        fetch('/execute_script', {
+          method: 'POST',
+          body: command
+        })
+          .then(response => response.text())
+          .then(text => output.textContent = text);
+      });
+    </script>
+  </body>
+</html>
+

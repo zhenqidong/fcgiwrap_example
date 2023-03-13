@@ -14,10 +14,16 @@ sudo -u www-data /var/www/bashexample/scripts/scls
 
 ```
 
-### test
+### test permission
 ```
 sudo -u www-data /var/www/bashexample/scripts/test
 ```
+
+## html
+
+1. js loop:
+   - for key in data: for iterable like array
+   - for key of data: for json object
 
 ## conf for nginx
 

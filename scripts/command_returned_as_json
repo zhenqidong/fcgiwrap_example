@@ -1,0 +1,6 @@
+#!/bin/sh
+# -*- coding: utf-8 -*-
+NAME="test result"
+echo "Content-type:application/json\r\n"
+out=`$SCRIPT_COMMAND`
+echo '{"key1":"'$out'"}'

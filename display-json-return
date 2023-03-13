@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Execute Script</title>
+    <style>
+      div.json-data {
+        white-space: pre-wrap;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 14px;
+        color: #333;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="execute-form">
+      Command: <input type="text" name="command"><br>
+      <input type="submit" value="Submit">
+    </form>
+    <div id="output" class="json-data"></div>
+
+    <script>
+      const form = document.getElementById('execute-form');
+      const output = document.getElementById('output');
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const command = formData.get('command');
+
+        fetch('execute_script',{
+          method: 'POST',
+          body: command
+        })
+          .then(response => {
+            const contentType = response.headers.get('Content-Type');
+            if (contentType && contentType.includes('application/json')) {
+              return response.json();
+            } else {
+              throw new TypeError('Response was not JSON');
+            }
+          })
+          .then(data => {
+            console.log(typeof(data))
+	    output.innerHTML='<p>{</p>'
+            for (const key in data) {
+              const p = document.createElement('p');
+	      p.innerHTML = `  Command: ${key}\n  Output:<pre> ${data[key]}</pre>\n`;
+              output.appendChild(p);
+            }
+            output.innerHTML += '<p>}</p>'
+
+          })
+          .catch(error => console.log(error));
+      })
+    </script>
+  </body>
+</html>
+

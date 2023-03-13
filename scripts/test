@@ -1,0 +1,11 @@
+#!/bin/sh
+# -*- coding: utf-8 -*-
+NAME="test result"
+echo "Content-type:text/plain\r\n"
+echo '=========================================='
+hostname
+uname -a
+date
+echo '=========================================='
+$SCRIPT_COMMAND
+echo '\n=========================================='
