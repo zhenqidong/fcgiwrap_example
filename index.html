@@ -3,13 +3,124 @@
   <head>
     <meta charset="UTF-8">
     <title>Execute Script</title>
+    <style>
+      .out {
+        -webkit-text-size-adjust: 100%;
+        tab-size: 4;
+        --color-primary: #19c37d;
+        --color-secondary: #715fde;
+        --color-error: #ef4146;
+        --gradient-primary: linear-gradient(90deg,#a29bd4,#989fdd);
+        --text-primary: #202123;
+        --text-default: #353740;
+        --text-secondary: #6e6e80;
+        --text-disabled: #acacbe;
+        --text-error: var(--color-error);
+        color-scheme: dark;
+        --tw-prose-invert-body: #d1d5db;
+        --tw-prose-invert-headings: #fff;
+        --tw-prose-invert-lead: #9ca3af;
+        --tw-prose-invert-links: #fff;
+        --tw-prose-invert-bold: #fff;
+        --tw-prose-invert-counters: #9ca3af;
+        --tw-prose-invert-bullets: #4b5563;
+        --tw-prose-invert-hr: #374151;
+        --tw-prose-invert-quotes: #f3f4f6;
+        --tw-prose-invert-quote-borders: #374151;
+        --tw-prose-invert-captions: #9ca3af;
+        --tw-prose-invert-code: #fff;
+        --tw-prose-invert-pre-code: #d1d5db;
+        --tw-prose-invert-pre-bg: rgba(0,0,0,.5);
+        --tw-prose-invert-th-borders: #4b5563;
+        --tw-prose-invert-td-borders: #374151;
+        word-wrap: break-word;
+        --tw-prose-body: var(--tw-prose-invert-body);
+        --tw-prose-headings: var(--tw-prose-invert-headings);
+        --tw-prose-lead: var(--tw-prose-invert-lead);
+        --tw-prose-links: var(--tw-prose-invert-links);
+        --tw-prose-bold: var(--tw-prose-invert-bold);
+        --tw-prose-counters: var(--tw-prose-invert-counters);
+        --tw-prose-bullets: var(--tw-prose-invert-bullets);
+        --tw-prose-hr: var(--tw-prose-invert-hr);
+        --tw-prose-quotes: var(--tw-prose-invert-quotes);
+        --tw-prose-quote-borders: var(--tw-prose-invert-quote-borders);
+        --tw-prose-captions: var(--tw-prose-invert-captions);
+        --tw-prose-code: var(--tw-prose-invert-code);
+        --tw-prose-pre-code: var(--tw-prose-invert-pre-code);
+        --tw-prose-pre-bg: var(--tw-prose-invert-pre-bg);
+        --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
+        --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
+        font-weight: 400;
+        border: 0 solid #d9d9e3;
+        box-sizing: border-box;
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59,130,246,.5);
+        --tw-ring-offset-shadow: 0 0 transparent;
+        --tw-ring-shadow: 0 0 transparent;
+        --tw-shadow: 0 0 transparent;
+        --tw-shadow-colored: 0 0 transparent;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        position: relative;
+        display: flex;
+        align-items: center;
+        --tw-bg-opacity: 1;
+        background-color: rgba(52,53,65,var(--tw-bg-opacity));
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: .5rem;
+        padding-top: .5rem;
+        font-family: Söhne,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+        font-size: .75rem;
+        line-height: 1rem;
+        --tw-text-opacity: 1;
+        color: rgba(217,217,227,var(--tw-text-opacity));
+      }
+    </style>
   </head>
   <body>
     <form id="execute-form">
-      Command: <input type="text" name="command"><br>
-      <input type="submit" value="Submit">
+      Command: <input type="text" name="command">
+      <!-- <input type="submit" value="Submit"> -->
+      <button type="submit" class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
     </form>
-    <pre id="output"></pre>
+    <pre id="output" class="out"></pre>
 
     <script>
       const form = document.getElementById('execute-form');
